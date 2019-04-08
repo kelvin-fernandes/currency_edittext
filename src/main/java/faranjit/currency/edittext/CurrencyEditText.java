@@ -317,6 +317,7 @@ public class CurrencyEditText extends EditText {
         text = text.replace(groupDivider, '\u0020').replace(monetaryDivider, '\u0020')
                 .replace(".", "").replace(" ", "")
                 .replace(currencySymbol, "").trim();
+        text = text.replaceAll("\\s+", "");
 
         if (showSymbol())
             return Double.parseDouble(text.replace(currencySymbol, "")) / Math.pow(10, fractionDigit);
